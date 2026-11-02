@@ -1,0 +1,364 @@
+---
+title: "UKACM 2027 — Abstract Submission and Review Guide"
+subtitle: "Microsoft CMT instructions for authors, mini-symposium (track) chairs and reviewers"
+author: "UKACM 2027 Organising Committee"
+date: last-modified
+date-format: "D MMMM YYYY"
+lang: en-GB
+
+# ---------------------------------------------------------------------------
+# EDIT THESE VALUES ONCE – they are inserted throughout the guide via
+# {{< meta ukacm.xxx >}} shortcodes, so every page stays consistent.
+# ---------------------------------------------------------------------------
+ukacm:
+  name: "UKACM 2027"
+  cmt-url: "https://cmt3.research.microsoft.com/UKACM2027"
+  website: "https://sites.google.com/view/ukacm2027conference"
+  email: "ukacm2027@glasgow.ac.uk"
+  venue: "University of Glasgow, Glasgow"
+  conf-dates: "07-09 April 2027"
+  tracks: "S1–S25"
+  abstract-chars: "300 words"
+  max-files: "3"
+  max-size: "10 MB"
+  file-types: "PDF, DOC or DOCX"
+  template: "abstract template on the conference website"
+  reviews-per-abstract: "1"
+  max-load: "6"
+  open: "02 November 2027, 00:00 UK Time"
+  invite-by: "[DD Month YYYY]"
+  abstract-deadline: "08 January 2027, 23:59 UK time"
+  assign-by: "[DD Month YYYY]"
+  review-deadline: "[DD Month YYYY]"
+  recommend-by: "[DD Month YYYY]"
+  notify: "31 January 2027"
+
+format:
+  html:
+    toc: true
+    toc-depth: 2
+    toc-location: left
+    toc-title: "Contents"
+    number-sections: true
+    embed-resources: true
+    theme: litera
+    fig-align: center
+    code-overflow: wrap
+    html-math-method: mathml
+    include-in-header:
+      text: |
+        <style>
+          h1, h2, h3 { color: #1F3B5C; }
+          .quarto-title .title { font-weight: 700; }
+          table { font-size: .93em; }
+          figcaption { font-size: .9em; }
+          figure img { max-width: 100%; }
+        </style>
+  pdf:
+    documentclass: scrartcl
+    papersize: a4
+    fontsize: 10.5pt
+    geometry:
+      - top=20mm
+      - bottom=20mm
+      - left=19mm
+      - right=19mm
+      - headsep=5mm
+    toc: false
+    number-sections: true
+    colorlinks: true
+    linkcolor: "ukacmnavy"
+    urlcolor: "ukacmblue"
+    fig-pos: "H"
+    fig-align: center
+    include-in-header:
+      text: |
+        \usepackage{xcolor}
+        \definecolor{ukacmnavy}{HTML}{1F3B5C}
+        \definecolor{ukacmblue}{HTML}{2672B8}
+        \addtokomafont{disposition}{\color{ukacmnavy}}
+        \addtokomafont{title}{\color{ukacmnavy}}
+        \usepackage[headsepline]{scrlayer-scrpage}
+        \pagestyle{scrheadings}
+        \clearpairofpagestyles
+        \ihead{\small UKACM 2027 \textperiodcentered{} Abstract submission and review guide}
+        \ohead{\small\headmark}
+        \cfoot{\small\pagemark}
+        \automark{section}
+        \setlength{\parskip}{0.35em}
+        \setlength{\parindent}{0pt}
+        \usepackage{etoolbox}
+        \AtBeginEnvironment{longtable}{\small}
+        \usepackage{enumitem}
+        \setlist{itemsep=0.5pt,topsep=2pt}
+        \usepackage{xurl}
+        \RedeclareSectionCommand[beforeskip=-1.6ex plus -.4ex,afterskip=.6ex]{section}
+        \RedeclareSectionCommand[beforeskip=-1.2ex plus -.3ex,afterskip=.4ex]{subsection}
+        \usepackage{caption}
+        \captionsetup{font=small,skip=4pt}
+---
+
+Abstracts for {{< meta ukacm.name >}} are submitted and reviewed in **Microsoft CMT**
+at 
+
+**[{{< meta ukacm.cmt-url >}}]({{< meta ukacm.cmt-url >}})**
+
+Each mini-symposium
+({{< meta ukacm.tracks >}}) is a separate **track** in CMT, run by its **track
+chairs** (the mini-symposium organisers); CMT calls an abstract a **submission**.
+Please read the section for your role:
+
+- **authors** → @sec-authors;
+- **track chairs** → @sec-trackchairs; 
+- **reviewers** → @sec-reviewers.
+
+`@msr-cmt.org` address: check your spam folder and, if necessary, ask your IT
+service to allow **msr-cmt.org**.
+
+| Milestone                                         | Date                                       |
+|:--------------------------------------------------|:-------------------------------------------|
+| Abstract submission opens                         | {{< meta ukacm.open >}}                    |
+| **Abstract submission deadline**                  | **{{< meta ukacm.abstract-deadline >}}**   |
+| Authors notified of the decision                  | {{< meta ukacm.notify >}}                  |
+: Key dates for {{< meta ukacm.name >}} ({{< meta ukacm.conf-dates >}}, {{< meta ukacm.venue >}}). {#tbl-dates tbl-colwidths="[58,42]"}
+
+<!-- | Track chairs send reviewer invitations            | {{< meta ukacm.invite-by >}}               | -->
+<!-- | Track chairs assign abstracts to reviewers        | {{< meta ukacm.assign-by >}}               | -->
+<!-- | Reviews completed                                 | {{< meta ukacm.review-deadline >}}         | -->
+<!-- | Track chairs send recommendations to organisers   | {{< meta ukacm.recommend-by >}}            | -->
+
+
+
+# For authors: submitting an abstract {#sec-authors}
+
+**Step 1 — Account.** If you have used CMT before, log in with that account.
+Otherwise register at <https://cmt3.research.microsoft.com/User/Register> with an
+institutional e-mail address you will keep, and confirm the verification e-mail.
+
+**Step 2 — Open the conference.** Use the link
+**[{{< meta ukacm.cmt-url >}}]({{< meta ukacm.cmt-url >}})**. If CMT reports
+*"Trying to access resource not allowed"*, go to
+<https://cmt3.research.microsoft.com>, open **All Conferences**, type
+*UKACM 2027* slowly into the search box (do not press Enter) and click the
+conference name. You arrive at the **Author Console**.
+
+**Step 3 — Choose your track (mini-symposium or general session).** Click **+ Create new submission…** and
+select your mini-symposium from the list (@fig-author-console). This decides which
+track chairs and reviewers handle your abstract. Note that the list is sorted
+alphabetically, so S10–S19 appear before S2. **Remark:** If you cannot find a suitable mini-symposium for your abstract, please check the general sessions.
+
+![Author Console: open **Create new submission…** (1) and choose your mini-symposium (2).](figures/cmt/author-console.png){#fig-author-console width="68%"}
+
+**Step 4 — Complete the form.** The *Create New Submission* page shows the
+selected track at the top; check it before you continue (@fig-title-abstract).
+Fields marked with a red asterisk (\*) are required.
+
+- **Title and Abstract.** Enter the title of your talk and paste the abstract as
+  plain text (at most {{< meta ukacm.abstract-chars >}}; the counter
+  below the box shows how many remain). Avoid LaTeX commands; write simple
+  notation such as `u_h` or `E = 200 GPa`.
+
+![Title and abstract. The track (1) must be the mini-symposium you intend to submit to.](figures/cmt/title-abstract.png){#fig-title-abstract width="58%"}
+
+- **Authors** (@fig-authors). You are listed as the *Primary Contact*
+  (corresponding author). For each co-author, enter e-mail, first name, last
+  name, organisation and country, then click **+ Add**. Use the e-mail address
+  of the co-author's own CMT account: CMT does not check it, and co-authors who
+  never register under that address receive no conference e-mails. Use × and
+  ↑↓ to remove or reorder authors.
+
+![Authors section. The first row is pre-filled with your profile.](figures/cmt/authors.png){#fig-authors width="100%"}
+
+- **Other sections** (if shown) — for example *Domain Conflicts* (the e-mail
+  domains of your institutions, such as `gla.ac.uk`, but not `gmail.com`),
+  *Subject Areas* or *Additional Questions*. Answer all required ones.
+- **Files and Submit** (@fig-files). Upload your abstract prepared with the
+  [{{< meta ukacm.template >}}]({{< meta ukacm.website >}}): up to
+  {{< meta ukacm.max-files >}} files, {{< meta ukacm.max-size >}} each,
+  {{< meta ukacm.file-types >}}. Drag the file into the dashed box or click
+  **Upload from Computer**, then click **Submit**. Nothing, including uploaded
+  files, is saved until you click **Submit**.
+
+![Files section and the Submit button at the bottom of the form.](figures/cmt/files-submit.png){#fig-files width="100%"}
+
+**Step 5 — After submitting.** CMT shows your **Paper ID** and e-mails a
+confirmation to all authors; the abstract now appears in your Author Console.
+Until the deadline you can use **Edit Submission** or **Delete Submission** in
+the *Actions* column. If these links are missing, the phase is closed; write to
+{{< meta ukacm.email >}} (not to Microsoft CMT support).
+
+# For mini-symposium organiser (track chair) {#sec-trackchairs}
+
+## Important
+
+As soon as you have created your CMT account, please let us know by email so that we can assign your role as **Track Chair**. As a track chair, you can invite reviewers (including mini-symposium co-organisers) and also act as a reviewer yourself.
+
+## Getting started
+
+Make sure you have a CMT account (Step 1 above) and send the exact e-mail address you use for your account
+to {{< meta ukacm.email >}}; we will give it the *Track Chair* role for your
+mini-symposium. Log in, open {{< meta ukacm.name >}} and choose **Track Chair** in
+**Select Your Role** (@fig-track-nav, 1). The blue bar then shows the track you
+manage (2), and the **Track Chair Console** lists only the abstracts of that
+track. Reviewers are managed under **Users › Reviewers** (3).
+
+![Track Chair view: role (1), your track (2) and the route to Manage Reviewers (3).](figures/cmt/track-chair-nav.png){#fig-track-nav width="88%"}
+
+<!-- **How many reviewers?** Each abstract needs
+**{{< meta ukacm.reviews-per-abstract >}} reviews** and no reviewer should get
+more than **{{< meta ukacm.max-load >}}**. For $N$ expected abstracts, $k$
+reviews each and a maximum load $L$, invite about $R \approx 1.5\,Nk/L$ people
+(e.g. $N=20$, $k=2$, $L=5$ gives $R\approx 12$), by {{< meta ukacm.invite-by >}},
+to allow for people who decline or do not reply. -->
+
+**Invite or assign?** *Invite* people who are not yet reviewers in your track;
+they join only after accepting. Anyone already listed on your **Manage
+Reviewers** page must not be invited again — just *assign* abstracts to them.
+Invitations are per track. Only invite people who would expect to hear from you:
+CMT's terms forbid unsolicited bulk e-mail.
+
+## Invite one reviewer
+
+1. On **Manage Reviewers**, open **Actions › Invite** (@fig-actions).
+2. Type the reviewer's e-mail address and click **Search** (@fig-invite-search).
+   If the person already has a CMT account, CMT shows their name and
+   organisation. If not, enter first name, last name and organisation and click
+   **Create Invite**; the reviewer will register when accepting. Click **Next**.
+3. Edit the invitation (@fig-invite-compose). The message is sent by CMT under
+   your name and asks reviewers to contact your e-mail address. Add a short personal
+   paragraph, sign with your name, click **Preview** and then **Send**.
+
+![Manage Reviewers: the **Actions** menu holds all invitation tools.](figures/cmt/actions-invite.png){#fig-actions width="66%"}
+
+![Search for the reviewer by e-mail address, then click **Next**.](figures/cmt/invite-search.png){#fig-invite-search width="84%"}
+
+![Composing the invitation. Keep the text in red unchanged; it carries the personal accept and decline links.](figures/cmt/invite-compose.png){#fig-invite-compose width="74%"}
+
+::: {.callout-tip}
+## Suggested paragraph (paste below "You are invited as a reviewer…")
+
+I am organising the mini-symposium "‹title›" at {{< meta ukacm.name >}}
+({{< meta ukacm.conf-dates >}}, {{< meta ukacm.venue >}}). Would you review
+about ‹L› short abstracts between ‹date› and ‹date›? Each review takes about
+15 minutes. If you have no Microsoft CMT account yet, please register with
+*this* e-mail address before clicking the accept link.
+:::
+
+Words in curly brackets such as `{Recipient.Name}` are placeholders that CMT
+fills in for each reviewer (**Show All Supported Placeholders** lists them).
+Never edit or delete `{Recipient.InviteeAcceptUrl}` or
+`{Recipient.InviteeDeclineUrl}`, otherwise the reviewer cannot respond. The
+invitation text cannot be saved as a template, so keep your paragraph in a
+separate file.
+
+## Invite many reviewers at once
+
+Choose **Actions › Invite (Bulk)** and upload a plain-text list (@fig-bulk).
+
+![Bulk invitation: the required fields and their order are shown on the page.](figures/cmt/bulk-invite.png){#fig-bulk width="100%"}
+
+Prepare one line per reviewer with exactly these five fields, separated by tabs
+and **without a header row**; leave *Middle Initial* empty if there is none:
+
+| First Name | Middle Initial | Last Name | Email                | Organization          |
+|:-----------|:---------------|:----------|:---------------------|:----------------------|
+| Jane       |                | Smith     | jane.smith@uni.ac.uk | University of Example |
+| Rui        | M              | Costa     | r.costa@inst.edu     | Example Institute     |
+
+: Example rows for the bulk-invitation file (columns A–E of a spreadsheet). {#tbl-bulk tbl-colwidths="[15,15,14,28,28]"}
+
+The file must be **UTF-8** text. The simplest route is a Google Sheet exported
+with **File › Download › Tab-separated values (.tsv)**; rename the file to `.txt`
+if the upload dialog does not accept `.tsv`. Excel's *Text (Tab delimited)*
+format is fine for names without accents but may corrupt names such as
+*Müller* or *Łukasz*. Click **Upload user list**, check the parsed names, click
+**Next**, edit the message as for a single invitation, **Preview** each e-mail
+and **Send**.
+
+## Follow up on invitations
+
+Open **Actions › Manage Invites** to see the status of every invitation.
+
+- *Accepted* reviewers appear on **Manage Reviewers** and can receive abstracts.
+  For *Declined* ones, invite a replacement.
+- **Reminders:** filter the *Status* column for *Not Responded*, then use
+  **Actions › Email**. Do **not** use **Bulk Resend Invites**: resending voids the
+  earlier links and resets accepted reviewers to *Not Responded*.
+- If *Not Responded* is not shown as a blue link, the person has no CMT account
+  yet. They must register with **exactly** the invited address and then click
+  the accept link again. Invitations expire on the date stated in the e-mail.
+
+## Assign abstracts and follow the reviews
+
+After the abstract deadline, give every abstract
+at least {{< meta ukacm.reviews-per-abstract >}} reviewer:
+
+- **Per abstract:** in the Track Chair Console, **More › Edit Assignments ›
+  Reviewer** at the end of the abstract's row, then tick reviewers in the
+  *Assign* column.
+- **Per reviewer:** on **Manage Reviewers**, **More › Edit Assignments** at the
+  end of the reviewer's row, then tick abstracts. The *Assigned* column shows each
+  reviewer's load.
+- **Automatic:** **Actions › Automatic Assignment › Reviewer** in the Track Chair
+  Console; check the proposal and click **Save assignments**.
+
+CMT hides reviewers who have a domain conflict with an author. If a
+**Notify Assignment?** pop-up appears, click **Yes**; otherwise filter **Manage
+Reviewers** for *Assigned* `>0` and use **Actions › Email**, e.g. with this
+template:
+
+```text
+Dear {Recipient.FirstName},
+You have been assigned the following abstract(s) for {Conference.Name}:
+{Review.AssignedDetail}
+Please log in at https://cmt3.research.microsoft.com, choose the role
+"Reviewer" and submit your reviews by <review deadline>.
+Best wishes, {Sender.Name}
+```
+
+Tell {{< meta ukacm.email >}} when your assignments are complete: reviewers see
+their abstracts only once we open the reviewing phase. Chase late reviewers with
+**Actions › Email › Reviewers (Not Completed)** in the console.
+
+# For reviewers {#sec-reviewers}
+
+**Accepting the invitation.** Click the accept link in the invitation e-mail. If
+you do not yet have a CMT account, first register at
+<https://cmt3.research.microsoft.com/User/Register> with the **same e-mail
+address** the invitation was sent to, verify it, and click the accept link again.
+When asked, enter the e-mail domains of your institutions as *domain conflicts*.
+Accepting gives you the Reviewer role; your console stays empty until abstracts
+are assigned and reviewing opens.
+
+**Writing your reviews.** When the track chair tells you that reviewing is open:
+
+1. Log in at <https://cmt3.research.microsoft.com>, open {{< meta ukacm.name >}}
+   and choose **Reviewer** in **Select Your Role**.
+2. The **Reviewer Console** lists your assigned abstracts. Download the file(s)
+   of each abstract from its row.
+3. Click **Enter Review**, answer the questions of the review form and click
+   **Submit**. You can change it with **Edit Review**.
+
+# Contact
+
+If you need any support during the process, please contact us via **{{< meta ukacm.email >}}**.
+
+Conference website: [{{< meta ukacm.website >}}]({{< meta ukacm.website >}}).
+
+<!-- # Troubleshooting {#sec-troubleshooting}
+
+| Problem                                                       | Solution                                                                                                 |
+|:--------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------|
+| No **+ Create new submission** button, or a track is missing. | Submission is not open (see @tbl-dates); otherwise contact us.                                           |
+| *"Trying to access resource not allowed"*.                    | Start from the main CMT page and search for the conference (Step 2).                                     |
+| No e-mails from CMT.                                          | Check the spam folder; allow `msr-cmt.org`.                                                              |
+| A co-author cannot see the abstract.                          | Their CMT account uses a different e-mail address; correct the author entry.                             |
+| Bulk upload shows wrong names or characters.                  | The file is not UTF-8 or has a header row; export it again as described above.                           |
+| Reviewer accepted but is not on **Manage Reviewers**.         | They registered with a different address; check **Manage Invites** and contact us.                      |
+| Accept link says the invitation expired.                      | It was resent or timed out; the track chair resends that single invitation.                              |
+| Reviewer sees no abstracts.                                   | Nothing assigned yet, or reviewing is not open yet.                                                      |
+| Abstract submitted to the wrong mini-symposium.                | Contact us before reviewing starts; reviews do not move with the abstract.                               |
+
+: Common problems. {#tbl-trouble tbl-colwidths="[40,60]"} -->
+
+
