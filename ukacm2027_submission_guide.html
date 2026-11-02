@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="UKACM 2027 Organising Committee">
-<meta name="dcterms.date" content="2026-10-29">
+<meta name="dcterms.date" content="2026-11-02">
 
 <title>UKACM 2027 — Abstract Submission and Review Guide</title>
 <style>
@@ -2223,7 +2223,7 @@ figure img { max-width: 100%; }
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">29 October 2026</p>
+      <p class="date">2 November 2026</p>
     </div>
   </div>
   
@@ -2264,7 +2264,7 @@ Table 1: Key dates for UKACM 2027 (07-09 April 2027, University of Glasgow, Gla
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Abstract submission opens</td>
-<td style="text-align: left;"><p>02 November 2027, 00:00 UK Time</p></td>
+<td style="text-align: left;"><p>02 November 2026, 00:00 UK Time</p></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Abstract submission deadline</strong></td>
@@ -2626,6 +2626,11 @@ Best wishes, {Sender.Name}</code></pre>
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
         }
       }
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
